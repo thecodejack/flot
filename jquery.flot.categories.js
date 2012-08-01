@@ -70,8 +70,8 @@ plot.getAxes().xaxis.categories.
             // FIXME: auto-detection should really not be defined here
             var s = series;
             format = [];
-            format.push({ x: true, number: true, required: true });
-            format.push({ y: true, number: true, required: true });
+            format.push({ x: true, number: true, required: true, autoscale: true });
+            format.push({ y: true, number: true, required: true, autoscale: true });
 
             if (s.bars.show || (s.lines.show && s.lines.fill)) {
                 format.push({ y: true, number: true, required: false, defaultValue: 0 });
