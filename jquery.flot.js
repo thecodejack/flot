@@ -539,8 +539,8 @@
                 if (!format) {
                     format = [];
                     // find out how to copy
-                    format.push({ x: true, number: true, required: true });
-                    format.push({ y: true, number: true, required: true });
+                    format.push({ x: true, number: true, required: true, autoscale: true });
+                    format.push({ y: true, number: true, required: true, autoscale: true });
 
                     if (s.bars.show || (s.lines.show && s.lines.fill)) {
                         format.push({ y: true, number: true, required: false, defaultValue: 0 });
@@ -657,7 +657,7 @@
                     for (m = 0; m < ps; ++m) {
                         val = points[j + m];
                         f = format[m];
-                        if (!f || val == fakeInfinity || val == -fakeInfinity)
+                        if (!f || !f.autoscale || val == fakeInfinity || val == -fakeInfinity)
                             continue;
                         
                         if (f.x) {

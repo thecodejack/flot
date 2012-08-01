@@ -24,6 +24,11 @@ CSS. Some older browsers lack this function of the canvas API (this doesn't
 affect IE); if this is a problem, either continue using an older version of
 Flot or try an emulation helper such as canvas-text or Flashcanvas.
 
+The data format has a new option called "autoscale" that controls whether the
+value is considered when auto-scaling the min and max of its axis. The option
+defaults to true, meaning that plugins overriding the default format may need
+to be updated to include the new option.
+
 The base and overlay canvas are now using the CSS classes "flot-base" and
 "flot-overlay" to prevent accidental clashes (issue 540).
 
@@ -86,6 +91,10 @@ The base and overlay canvas are now using the CSS classes "flot-base" and
 
  - Added support for high pixel density (retina) displays, resulting in much
    crisper charts on such devices. (patch by Olivier Guerriat)
+
+ - Added a data format "autoscale" option that controls whether the value is
+   considered when auto-scaling the min and max of its axis. (patch by
+   David Schnur and Tom Cleaveland)
 
 ### Bug fixes ###
 

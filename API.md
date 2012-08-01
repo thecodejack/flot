@@ -1236,19 +1236,30 @@ hooks in the plugins bundled with Flot.
 
     ```js
     [
-        { x: true, number: true, required: true },
-        { y: true, number: true, required: true }
+        { x: true, number: true, required: true, autoscale: true },
+        { y: true, number: true, required: true, autoscale: true }
     ]
     ```
 
-    The first object means that for the first coordinate it should be
-    taken into account when scaling the x axis, that it must be a
-    number, and that it is required - so if it is null or cannot be
-    converted to a number, the whole point will be zeroed out with
-    nulls. Beyond these you can also specify "defaultValue", a value to
-    use if the coordinate is null. This is for instance handy for bars
-    where one can omit the third coordinate (the bottom of the bar)
-    which then defaults to 0.
+    The "x" & "y" properties indicate which axis the value is plotted on,
+    for scaling purposes.
+
+    The "number" property indicates that it expects a numeric value; if
+    the value is null or cannot be converted to a number, it is treated
+    as though no value were provided at all.
+
+    The "required" property indicates that a value must be present; if
+    the value missing, the whole point will be zeroed out with nulls.
+
+    The "autoscale" property indicates whether to consider the value when
+    searching for a minimum and maximum for the value's axis. This is
+    especially useful for plugin authors who may want to insert extra
+    points for drawing purposes, but not have them affect the scale.
+
+    Beyond these you can also specify "defaultValue", a value to use if
+    the coordinate is null. This is for instance handy for bars where one
+    can omit the third coordinate (the bottom of the bar) which then
+    defaults to zero.
 
  - processDatapoints  [phase 3]
 
