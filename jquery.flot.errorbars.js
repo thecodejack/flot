@@ -75,8 +75,8 @@ from the points series.
 
         // x,y values
         var format = [
-            { x: true, number: true, required: true },
-            { y: true, number: true, required: true }
+            { x: true, number: true, required: true, autoscale: true },
+            { y: true, number: true, required: true, autoscale: true }
         ];
 
         var errors = series.points.errorbars;
@@ -84,18 +84,18 @@ from the points series.
         if (errors == 'x' || errors == 'xy') {
             // lower / upper error
             if (series.points.xerr.asymmetric) {
-                format.push({ x: true, number: true, required: true });
-                format.push({ x: true, number: true, required: true });
+                format.push({ x: true, number: true, required: true, autoscale: true });
+                format.push({ x: true, number: true, required: true, autoscale: true });
             } else
-                format.push({ x: true, number: true, required: true });
+                format.push({ x: true, number: true, required: true, autoscale: true });
         }
         if (errors == 'y' || errors == 'xy') {
             // lower / upper error
             if (series.points.yerr.asymmetric) {
-                format.push({ y: true, number: true, required: true });
-                format.push({ y: true, number: true, required: true });
+                format.push({ y: true, number: true, required: true, autoscale: true });
+                format.push({ y: true, number: true, required: true, autoscale: true });
             } else
-                format.push({ y: true, number: true, required: true });
+                format.push({ y: true, number: true, required: true, autoscale: true });
         }
         datapoints.format = format;
     }
